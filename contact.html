@@ -409,7 +409,7 @@
 </footer>
 
 <script>
-    // Form submission handler with JSONP to bypass CORS
+    // Form submission handler with improved JSONP error handling
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
 
@@ -438,16 +438,20 @@
                 callback: callbackName
             });
 
+            console.log('Sending request to:', url);
+
             // Create promise for JSONP
             const jsonpPromise = new Promise((resolve, reject) => {
                 // Set timeout
                 const timeout = setTimeout(() => {
+                    console.error('Request timeout after 15 seconds');
                     cleanup();
-                    reject(new Error('Request timeout'));
-                }, 10000);
+                    reject(new Error('Request timeout - please try again'));
+                }, 15000);
 
                 // Define callback function
                 window[callbackName] = function(data) {
+                    console.log('Received response:', data);
                     cleanup();
                     resolve(data);
                 };
@@ -455,9 +459,17 @@
                 // Create script tag
                 const script = document.createElement('script');
                 script.src = url;
-                script.onerror = () => {
+                script.async = true;
+
+                script.onerror = (error) => {
+                    console.error('Script loading failed:', error);
+                    console.error('URL was:', url);
                     cleanup();
-                    reject(new Error('Script loading failed'));
+                    reject(new Error('Unable to connect to server. Please check your internet connection or try again later.'));
+                };
+
+                script.onload = () => {
+                    console.log('Script loaded successfully');
                 };
 
                 // Cleanup function
@@ -483,8 +495,8 @@
                 throw new Error(result.error || 'Failed to send message');
             }
         } catch (error) {
-            console.error('Error:', error);
-            alert('❌ Sorry, there was an error sending your message. Please try again or contact us directly at contact@wonderx.co.kr');
+            console.error('Form submission error:', error);
+            alert('❌ ' + error.message + '\n\nIf the problem persists, please contact us directly at contact@wonderx.co.kr');
         } finally {
             // Re-enable submit button
             submitButton.textContent = originalText;
