@@ -409,7 +409,7 @@
 </footer>
 
 <script>
-    // Form submission handler
+    // Form submission handler with JSONP to bypass CORS
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
 
@@ -422,7 +422,7 @@
         };
 
         // Google Apps Script proxy URL
-        const proxyUrl = 'https://script.google.com/macros/s/AKfycbwwJpHMNnGLOlszd7sMOx6PWRo3Y6t4WDwhe6i8feFPuW3oGCOrFTw-vjV8tJCbgak/exec';
+        const proxyUrl = 'https://script.google.com/a/macros/wonderx.co.kr/s/AKfycby4GAfENeX-BJjSbWJNs2H_VRnQQTTQW9pip-GqXggOruuK6jwD7qjSYq5el1ImUShHDQ/exec';
 
         // Disable submit button
         const submitButton = this.querySelector('.submit-button');
@@ -431,16 +431,49 @@
         submitButton.disabled = true;
 
         try {
-            // Send to Google Apps Script proxy
-            const response = await fetch(proxyUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
+            // Create JSONP request
+            const callbackName = 'jsonpCallback_' + Date.now();
+            const url = proxyUrl + '?' + new URLSearchParams({
+                ...formData,
+                callback: callbackName
             });
 
-            const result = await response.json();
+            // Create promise for JSONP
+            const jsonpPromise = new Promise((resolve, reject) => {
+                // Set timeout
+                const timeout = setTimeout(() => {
+                    cleanup();
+                    reject(new Error('Request timeout'));
+                }, 10000);
+
+                // Define callback function
+                window[callbackName] = function(data) {
+                    cleanup();
+                    resolve(data);
+                };
+
+                // Create script tag
+                const script = document.createElement('script');
+                script.src = url;
+                script.onerror = () => {
+                    cleanup();
+                    reject(new Error('Script loading failed'));
+                };
+
+                // Cleanup function
+                function cleanup() {
+                    clearTimeout(timeout);
+                    delete window[callbackName];
+                    if (script.parentNode) {
+                        script.parentNode.removeChild(script);
+                    }
+                }
+
+                // Add script to page
+                document.body.appendChild(script);
+            });
+
+            const result = await jsonpPromise;
 
             if (result.success) {
                 // Success
