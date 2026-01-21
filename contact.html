@@ -408,31 +408,12 @@
     </div>
 </footer>
 
-<!-- Hidden iframe for form submission -->
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
 <script>
-    // Form submission handler using hidden iframe (more stable than JSONP)
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // Form submission handler - direct Slack webhook call
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        // Google Apps Script proxy URL
-        const proxyUrl = 'https://script.google.com/a/macros/wonderx.co.kr/s/AKfycby4GAfENeX-BJjSbWJNs2H_VRnQQTTQW9pip-GqXggOruuK6jwD7qjSYq5el1ImUShHDQ/exec';
-
-        // Disable submit button
-        const submitButton = this.querySelector('.submit-button');
-        const originalText = submitButton.textContent;
-        submitButton.textContent = 'Sending...';
-        submitButton.disabled = true;
-
-        // Create a temporary form
-        const tempForm = document.createElement('form');
-        tempForm.action = proxyUrl;
-        tempForm.method = 'GET';
-        tempForm.target = 'hidden_iframe';
-        tempForm.style.display = 'none';
-
-        // Add form data as hidden inputs
+        // Get form data
         const formData = {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
@@ -440,26 +421,91 @@
             message: document.getElementById('message').value
         };
 
-        for (const [key, value] of Object.entries(formData)) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = key;
-            input.value = value;
-            tempForm.appendChild(input);
-        }
+        // Slack webhook URL
+        const webhookUrl = 'https://hooks.slack.com/services/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';
 
-        // Add to page and submit
-        document.body.appendChild(tempForm);
-        tempForm.submit();
+        // Create Slack message
+        const slackMessage = {
+            text: "🔔 New Contact Form Submission",
+            blocks: [
+                {
+                    type: "header",
+                    text: {
+                        type: "plain_text",
+                        text: "📬 New Contact Form Message",
+                        emoji: true
+                    }
+                },
+                {
+                    type: "section",
+                    fields: [
+                        {
+                            type: "mrkdwn",
+                            text: `*Name:*\n${formData.name}`
+                        },
+                        {
+                            type: "mrkdwn",
+                            text: `*Email:*\n${formData.email}`
+                        }
+                    ]
+                },
+                {
+                    type: "section",
+                    fields: [
+                        {
+                            type: "mrkdwn",
+                            text: `*Subject:*\n${formData.subject}`
+                        },
+                        {
+                            type: "mrkdwn",
+                            text: `*Time:*\n${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`
+                        }
+                    ]
+                },
+                {
+                    type: "section",
+                    text: {
+                        type: "mrkdwn",
+                        text: `*Message:*\n${formData.message}`
+                    }
+                },
+                {
+                    type: "divider"
+                }
+            ]
+        };
 
-        // Cleanup and show success
-        setTimeout(() => {
-            document.body.removeChild(tempForm);
+        // Disable submit button
+        const submitButton = this.querySelector('.submit-button');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        try {
+            // Send directly to Slack
+            const response = await fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(slackMessage)
+            });
+
+            if (response.ok) {
+                // Success
+                alert('✅ Thank you for your message! We will get back to you soon.');
+                this.reset();
+            } else {
+                throw new Error('Failed to send message');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('❌ Sorry, there was an error sending your message. Please try again or contact us directly at contact@wonderx.co.kr');
+        } finally {
+            // Re-enable submit button
             submitButton.textContent = originalText;
             submitButton.disabled = false;
-            alert('✅ Thank you for your message! We will get back to you soon.');
-            document.getElementById('contactForm').reset();
-        }, 2000);
+        }
     });
 </script>
 </body>
