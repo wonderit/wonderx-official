@@ -408,18 +408,13 @@
     </div>
 </footer>
 
-<script>
-    // Form submission handler with improved JSONP error handling
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
+<!-- Hidden iframe for form submission -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
+<script>
+    // Form submission handler using hidden iframe (more stable than JSONP)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
 
         // Google Apps Script proxy URL
         const proxyUrl = 'https://script.google.com/a/macros/wonderx.co.kr/s/AKfycby4GAfENeX-BJjSbWJNs2H_VRnQQTTQW9pip-GqXggOruuK6jwD7qjSYq5el1ImUShHDQ/exec';
@@ -430,78 +425,41 @@
         submitButton.textContent = 'Sending...';
         submitButton.disabled = true;
 
-        try {
-            // Create JSONP request
-            const callbackName = 'jsonpCallback_' + Date.now();
-            const url = proxyUrl + '?' + new URLSearchParams({
-                ...formData,
-                callback: callbackName
-            });
+        // Create a temporary form
+        const tempForm = document.createElement('form');
+        tempForm.action = proxyUrl;
+        tempForm.method = 'GET';
+        tempForm.target = 'hidden_iframe';
+        tempForm.style.display = 'none';
 
-            console.log('Sending request to:', url);
+        // Add form data as hidden inputs
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
 
-            // Create promise for JSONP
-            const jsonpPromise = new Promise((resolve, reject) => {
-                // Set timeout
-                const timeout = setTimeout(() => {
-                    console.error('Request timeout after 15 seconds');
-                    cleanup();
-                    reject(new Error('Request timeout - please try again'));
-                }, 15000);
+        for (const [key, value] of Object.entries(formData)) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = value;
+            tempForm.appendChild(input);
+        }
 
-                // Define callback function
-                window[callbackName] = function(data) {
-                    console.log('Received response:', data);
-                    cleanup();
-                    resolve(data);
-                };
+        // Add to page and submit
+        document.body.appendChild(tempForm);
+        tempForm.submit();
 
-                // Create script tag
-                const script = document.createElement('script');
-                script.src = url;
-                script.async = true;
-
-                script.onerror = (error) => {
-                    console.error('Script loading failed:', error);
-                    console.error('URL was:', url);
-                    cleanup();
-                    reject(new Error('Unable to connect to server. Please check your internet connection or try again later.'));
-                };
-
-                script.onload = () => {
-                    console.log('Script loaded successfully');
-                };
-
-                // Cleanup function
-                function cleanup() {
-                    clearTimeout(timeout);
-                    delete window[callbackName];
-                    if (script.parentNode) {
-                        script.parentNode.removeChild(script);
-                    }
-                }
-
-                // Add script to page
-                document.body.appendChild(script);
-            });
-
-            const result = await jsonpPromise;
-
-            if (result.success) {
-                // Success
-                alert('✅ Thank you for your message! We will get back to you soon.');
-                this.reset();
-            } else {
-                throw new Error(result.error || 'Failed to send message');
-            }
-        } catch (error) {
-            console.error('Form submission error:', error);
-            alert('❌ ' + error.message + '\n\nIf the problem persists, please contact us directly at contact@wonderx.co.kr');
-        } finally {
-            // Re-enable submit button
+        // Cleanup and show success
+        setTimeout(() => {
+            document.body.removeChild(tempForm);
             submitButton.textContent = originalText;
             submitButton.disabled = false;
-        }
+            alert('✅ Thank you for your message! We will get back to you soon.');
+            document.getElementById('contactForm').reset();
+        }, 2000);
     });
 </script>
 </body>
