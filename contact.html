@@ -416,6 +416,33 @@
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
+        // Get form data
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value.trim();
+
+        // Validation: Check for empty or N/A values
+        if (!name || name.toLowerCase() === 'n/a' || name.length < 2) {
+            alert('❌ Please enter a valid name.');
+            return;
+        }
+
+        if (!email || email.toLowerCase() === 'n/a' || !email.includes('@')) {
+            alert('❌ Please enter a valid email address.');
+            return;
+        }
+
+        if (!subject || subject === '') {
+            alert('❌ Please select a subject.');
+            return;
+        }
+
+        if (!message || message.toLowerCase() === 'n/a' || message.length < 10) {
+            alert('❌ Please enter a message (at least 10 characters).');
+            return;
+        }
+
         // Google Apps Script proxy URL (personal account)
         const proxyUrl = 'https://script.google.com/macros/s/AKfycby4GAfENeX-BJjSbWJNs2H_VRnQQTTQW9pip-GqXggOruuK6jwD7qjSYq5el1ImUShHDQ/exec';
 
@@ -434,10 +461,10 @@
 
         // Add form data as hidden inputs
         const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
         };
 
         for (const [key, value] of Object.entries(formData)) {
