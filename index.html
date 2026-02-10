@@ -212,11 +212,149 @@
             line-height: 1.7;
         }
 
+        /* Contact Section */
+        .contact {
+            padding: 8rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .info-card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .info-card a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-card a:hover {
+            color: var(--accent-hover);
+        }
+
+        .contact-form-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .contact-form-container h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--bg-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent);
+            color: var(--text-primary);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(10, 132, 255, 0.3);
+        }
+
+        .form-note {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
         /* Footer */
         footer {
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             border-top: 1px solid var(--border);
-            padding: 4rem 2rem 2rem;
+            padding: 3rem 2rem;
         }
 
         .footer-container {
@@ -265,6 +403,13 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-container {
                 padding: 1rem;
@@ -290,9 +435,13 @@
                 grid-template-columns: 1fr;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .contact {
+                padding: 5rem 1rem;
+            }
+
+            .info-card,
+            .contact-form-container {
+                padding: 1.5rem;
             }
         }
 
@@ -315,7 +464,7 @@
         <div class="logo">WonderX</div>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 </nav>
@@ -359,38 +508,152 @@
     </div>
 </section>
 
-<!-- Footer -->
-<footer id="contact">
-    <div class="footer-container">
-        <div class="footer-grid">
-            <div class="footer-section">
-                <h4>WonderX</h4>
-                <p>Beyond Reality, Towards Connection</p>
-                <p style="margin-top: 1rem;">Building the future of digital interaction through innovative technology solutions.</p>
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-subtitle">Have a question or want to work together? We'd love to hear from you.</p>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <div class="info-card">
+                <div class="info-card-icon">📧</div>
+                <h3>Email</h3>
+                <p>For general inquiries and support</p>
+                <p><a href="mailto:contact@wonderx.co.kr">contact@wonderx.co.kr</a></p>
             </div>
 
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <div class="footer-links">
-                    <p><strong>Company:</strong> WonderX Inc.</p>
-                    <p><strong>Email:</strong> <a href="mailto:contact@wonderx.co.kr">contact@wonderx.co.kr</a></p>
-                    <p><strong>Address:</strong> 123 Seochojungang-ro, Seocho-gu, Seoul, Republic of Korea</p>
-                </div>
+            <div class="info-card">
+                <div class="info-card-icon">📍</div>
+                <h3>Office</h3>
+                <p><strong>WonderX Inc.</strong></p>
+                <p>123 Seochojungang-ro<br>
+                    Seocho-gu, Seoul<br>
+                    Republic of Korea</p>
             </div>
 
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
+            <div class="info-card">
+                <div class="info-card-icon">🏢</div>
+                <h3>Business</h3>
+                <p>For partnership and business inquiries, please reach out via email with details about your proposal.</p>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2025 WonderX Inc. All rights reserved.</p>
+        <div class="contact-form-container">
+            <h2>Send us a Message</h2>
+            <form id="contactForm" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="partnership">Partnership Opportunity</option>
+                        <option value="support">Technical Support</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Tell us more about your inquiry..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Send Message</button>
+
+                <p class="form-note">* Required fields. We typically respond within 24-48 hours.</p>
+            </form>
         </div>
     </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+            <a href="#services" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Services</a>
+            <a href="#contact" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Contact</a>
+            <a href="privacy.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Privacy Policy</a>
+            <a href="terms.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Terms of Service</a>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2025 WonderX Inc. All rights reserved.</p>
+    </div>
 </footer>
+
+<!-- Hidden iframe for form submission -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || name.toLowerCase() === 'n/a' || name.length < 2) {
+            alert('Please enter a valid name.');
+            return;
+        }
+
+        if (!email || email.toLowerCase() === 'n/a' || !email.includes('@')) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        if (!subject || subject === '') {
+            alert('Please select a subject.');
+            return;
+        }
+
+        if (!message || message.toLowerCase() === 'n/a' || message.length < 10) {
+            alert('Please enter a message (at least 10 characters).');
+            return;
+        }
+
+        const proxyUrl = 'https://script.google.com/macros/s/AKfycby4GAfENeX-BJjSbWJNs2H_VRnQQTTQW9pip-GqXggOruuK6jwD7qjSYq5el1ImUShHDQ/exec';
+
+        const submitButton = this.querySelector('.submit-button');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        const tempForm = document.createElement('form');
+        tempForm.action = proxyUrl;
+        tempForm.method = 'GET';
+        tempForm.target = 'hidden_iframe';
+        tempForm.style.display = 'none';
+
+        const formData = { name, email, subject, message };
+
+        for (const [key, value] of Object.entries(formData)) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = value;
+            tempForm.appendChild(input);
+        }
+
+        document.body.appendChild(tempForm);
+        tempForm.submit();
+
+        setTimeout(() => {
+            document.body.removeChild(tempForm);
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+            alert('Thank you for your message! We will get back to you soon.');
+            document.getElementById('contactForm').reset();
+        }, 2000);
+    });
+</script>
 </body>
 </html>
