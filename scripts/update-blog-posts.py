@@ -38,10 +38,6 @@ def parse_posts(tree):
             continue
         url = link_el.get("href", "")
 
-        # 영문 포스트 제외
-        if url.rstrip("/").endswith("-en"):
-            continue
-
         title = entry.findtext(f"{ATOM_NS}title", "").strip()
         summary = entry.findtext(f"{ATOM_NS}summary", "").strip()
         published = entry.findtext(f"{ATOM_NS}published", "")
