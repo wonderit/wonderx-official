@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WonderX Privacy Policy - How we collect, use, and protect your information.">
-    <title>Privacy Policy - WonderX</title>
+    <meta name="description" content="WonderX 개인정보처리방침 - 개인정보의 수집, 이용, 보호에 관한 안내입니다.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wonderx.co.kr/privacy.html">
+    <title>개인정보처리방침 - WonderX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,18 +18,18 @@
         }
 
         :root {
-            --bg-primary: #000000;
-            --bg-secondary: #1c1c1e;
-            --bg-card: #2c2c2e;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: rgba(255, 255, 255, 0.03);
             --text-primary: #ffffff;
-            --text-secondary: #a1a1a6;
-            --accent: #0a84ff;
-            --accent-hover: #0077ed;
-            --border: #38383a;
+            --text-secondary: #7d8187;
+            --accent: #ffffff;
+            --accent-hover: #d4d4d4;
+            --border: #1f2228;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Space Grotesk', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
@@ -36,7 +41,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 10, 10, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
@@ -54,7 +59,7 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: -0.5px;
             color: var(--text-primary);
             text-decoration: none;
@@ -67,14 +72,14 @@
         }
 
         .nav-links a {
-            color: var(--text-primary);
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.95rem;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--text-primary);
         }
 
         /* Main Content */
@@ -100,6 +105,7 @@
         .last-updated {
             color: var(--text-secondary);
             font-size: 0.95rem;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .section {
@@ -118,7 +124,7 @@
             font-weight: 600;
             margin-top: 2rem;
             margin-bottom: 0.8rem;
-            color: var(--accent);
+            color: var(--text-primary);
         }
 
         .section p {
@@ -140,10 +146,10 @@
 
         .highlight-box {
             background: var(--bg-card);
-            border-left: 3px solid var(--accent);
+            border-left: 3px solid var(--text-secondary);
             padding: 1.5rem;
             margin: 2rem 0;
-            border-radius: 8px;
+            border-radius: 0;
         }
 
         .highlight-box p {
@@ -180,12 +186,22 @@
         }
 
         .footer-links a:hover {
-            color: var(--accent);
+            color: var(--text-primary);
         }
 
         .footer-text {
             color: var(--text-secondary);
             font-size: 0.9rem;
+        }
+
+        a {
+            color: var(--text-primary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
         }
 
         /* Responsive */
@@ -216,7 +232,7 @@
         }
 
         ::selection {
-            background: var(--accent);
+            background: rgba(255, 255, 255, 0.2);
             color: var(--text-primary);
         }
     </style>
@@ -225,10 +241,12 @@
 <!-- Navigation -->
 <nav>
     <div class="nav-container">
-        <a href="index.html" class="logo">WonderX</a>
+        <a href="/" class="logo">WonderX</a>
         <ul class="nav-links">
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/#services">서비스</a></li>
+            <li><a href="/#about">소개</a></li>
+            <li><a href="https://blog.wonderx.co.kr" target="_blank">블로그</a></li>
+            <li><a href="/#contact">문의</a></li>
         </ul>
     </div>
 </nav>
@@ -236,112 +254,106 @@
 <!-- Main Content -->
 <main class="content">
     <div class="page-header">
-        <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: January 21, 2025</p>
+        <h1>개인정보처리방침</h1>
+        <p class="last-updated">최종 수정일: 2025.01.21</p>
     </div>
 
     <div class="section">
-        <h2>1. Introduction</h2>
-        <p>Welcome to WonderX. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website or use our services and tell you about your privacy rights and how the law protects you.</p>
-    </div>
-
-    <div class="section">
-        <h2>2. Information We Collect</h2>
-
-        <h3>2.1 Personal Information</h3>
-        <p>We may collect, use, store and transfer different kinds of personal data about you, including:</p>
+        <h2>1. 개인정보의 처리 목적</h2>
+        <p>WonderX(이하 "회사")는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.</p>
         <ul>
-            <li>Identity Data: name, username, or similar identifier</li>
-            <li>Contact Data: email address, telephone numbers, physical address</li>
-            <li>Technical Data: IP address, browser type, device information, operating system</li>
-            <li>Usage Data: information about how you use our website and services</li>
-            <li>Marketing and Communications Data: your preferences in receiving marketing from us</li>
+            <li>서비스 제공, 유지 및 개선</li>
+            <li>거래 처리 및 관련 정보 전달</li>
+            <li>제품, 서비스, 프로모션에 관한 소통</li>
+            <li>고객 문의 및 서비스 요청 대응</li>
+            <li>서비스 이용 동향 및 활동 분석</li>
+            <li>기술적 문제 및 부정 활동 탐지, 예방, 대응</li>
+            <li>법적 의무 준수 및 법적 권리 보호</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>2. 수집하는 개인정보 항목</h2>
+
+        <h3>2.1 직접 수집 정보</h3>
+        <p>회사는 서비스 제공을 위해 다음과 같은 개인정보를 수집할 수 있습니다.</p>
+        <ul>
+            <li>식별 정보: 성명, 사용자명 또는 유사한 식별자</li>
+            <li>연락처 정보: 이메일 주소, 전화번호, 주소</li>
+            <li>기술 정보: IP 주소, 브라우저 유형, 기기 정보, 운영체제</li>
+            <li>이용 정보: 웹사이트 및 서비스 이용 내역</li>
+            <li>마케팅 수신 동의 정보</li>
         </ul>
 
-        <h3>2.2 Automatically Collected Information</h3>
-        <p>When you visit our website, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device.</p>
-    </div>
-
-    <div class="section">
-        <h2>3. How We Use Your Information</h2>
-        <p>We use your personal information for the following purposes:</p>
-        <ul>
-            <li>To provide, maintain, and improve our services</li>
-            <li>To process your transactions and send you related information</li>
-            <li>To communicate with you about products, services, and promotional offers</li>
-            <li>To respond to your comments, questions, and customer service requests</li>
-            <li>To monitor and analyze trends, usage, and activities in connection with our services</li>
-            <li>To detect, prevent, and address technical issues and fraudulent activities</li>
-            <li>To comply with legal obligations and protect our legal rights</li>
-        </ul>
+        <h3>2.2 자동 수집 정보</h3>
+        <p>웹사이트 방문 시, 웹 브라우저, IP 주소, 시간대, 설치된 쿠키 일부 등 기기에 관한 특정 정보가 자동으로 수집됩니다.</p>
     </div>
 
     <div class="highlight-box">
-        <p><strong>Your Rights:</strong> You have the right to access, correct, or delete your personal information at any time. You may also object to or restrict certain processing of your data.</p>
+        <p><strong>이용자의 권리:</strong> 이용자는 언제든지 본인의 개인정보에 대해 열람, 정정, 삭제를 요청할 수 있습니다. 또한 특정 처리에 대해 이의를 제기하거나 제한을 요청할 수 있습니다.</p>
     </div>
 
     <div class="section">
-        <h2>4. Data Sharing and Disclosure</h2>
-        <p>We may share your personal information in the following circumstances:</p>
+        <h2>3. 개인정보의 제공 및 공유</h2>
+        <p>회사는 다음의 경우에 개인정보를 제3자에게 제공할 수 있습니다.</p>
         <ul>
-            <li><strong>Service Providers:</strong> We may share your information with third-party service providers who perform services on our behalf</li>
-            <li><strong>Business Transfers:</strong> If we are involved in a merger, acquisition, or sale of assets, your information may be transferred</li>
-            <li><strong>Legal Requirements:</strong> We may disclose your information if required by law or in response to valid requests by public authorities</li>
-            <li><strong>With Your Consent:</strong> We may share your information with your consent or at your direction</li>
+            <li><strong>서비스 제공업체:</strong> 회사를 대신하여 서비스를 수행하는 제3자 서비스 제공업체와 정보를 공유할 수 있습니다.</li>
+            <li><strong>사업 양도:</strong> 합병, 인수 또는 자산 매각에 관련된 경우 정보가 이전될 수 있습니다.</li>
+            <li><strong>법적 요건:</strong> 법률에 의해 요구되거나 공공 기관의 적법한 요청에 따라 정보를 공개할 수 있습니다.</li>
+            <li><strong>이용자 동의:</strong> 이용자의 동의 또는 지시에 따라 정보를 공유할 수 있습니다.</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>5. Data Security</h2>
-        <p>We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please note that no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure.</p>
+        <h2>4. 개인정보의 안전성 확보 조치</h2>
+        <p>회사는 처리하는 개인정보의 보안을 위해 적절한 기술적, 관리적 보안 조치를 시행하고 있습니다. 다만, 인터넷을 통한 전자적 전송이나 정보 저장 기술이 100% 안전하다고 보장할 수는 없습니다.</p>
     </div>
 
     <div class="section">
-        <h2>6. Data Retention</h2>
-        <p>We will only retain your personal data for as long as necessary to fulfill the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements.</p>
+        <h2>5. 개인정보의 보유 및 이용 기간</h2>
+        <p>회사는 개인정보 수집 목적을 달성하는 데 필요한 기간 동안만 개인정보를 보유하며, 법적, 회계적, 보고 의무를 충족하기 위한 목적을 포함합니다.</p>
     </div>
 
     <div class="section">
-        <h2>7. Your Privacy Rights</h2>
-        <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+        <h2>6. 이용자의 권리와 행사 방법</h2>
+        <p>이용자는 개인정보와 관련하여 다음의 권리를 행사할 수 있습니다.</p>
         <ul>
-            <li>The right to access your personal data</li>
-            <li>The right to rectification of inaccurate personal data</li>
-            <li>The right to erasure of your personal data</li>
-            <li>The right to restrict processing of your personal data</li>
-            <li>The right to data portability</li>
-            <li>The right to object to processing of your personal data</li>
-            <li>The right to withdraw consent at any time</li>
+            <li>개인정보 열람 요구권</li>
+            <li>오류 정정 요구권</li>
+            <li>삭제 요구권</li>
+            <li>처리 정지 요구권</li>
+            <li>개인정보 이동권</li>
+            <li>처리에 대한 이의 제기권</li>
+            <li>동의 철회권</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>8. Cookies and Tracking Technologies</h2>
-        <p>We use cookies and similar tracking technologies to track activity on our service and store certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service.</p>
+        <h2>7. 쿠키 및 추적 기술</h2>
+        <p>회사는 서비스 이용 내역을 추적하고 특정 정보를 저장하기 위해 쿠키 및 유사한 추적 기술을 사용합니다. 브라우저 설정을 통해 모든 쿠키를 거부하거나 쿠키 전송 시 알림을 받도록 설정할 수 있습니다. 다만, 쿠키를 수락하지 않으면 서비스의 일부 기능을 이용하지 못할 수 있습니다.</p>
     </div>
 
     <div class="section">
-        <h2>9. International Data Transfers</h2>
-        <p>Your information may be transferred to and maintained on computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.</p>
+        <h2>8. 국외 이전</h2>
+        <p>이용자의 정보는 이용자가 거주하는 국가 외의 컴퓨터에 전송되어 유지될 수 있으며, 해당 국가의 데이터 보호법은 이용자의 관할권과 다를 수 있습니다.</p>
     </div>
 
     <div class="section">
-        <h2>10. Children's Privacy</h2>
-        <p>Our services are not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you become aware that a child has provided us with personal information, please contact us.</p>
+        <h2>9. 아동의 개인정보 보호</h2>
+        <p>회사의 서비스는 만 14세 미만의 아동을 대상으로 하지 않습니다. 회사는 만 14세 미만 아동의 개인정보를 고의로 수집하지 않습니다. 아동이 개인정보를 제공한 사실을 알게 된 경우 즉시 연락해 주시기 바랍니다.</p>
     </div>
 
     <div class="section">
-        <h2>11. Changes to This Privacy Policy</h2>
-        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top of this Privacy Policy.</p>
+        <h2>10. 개인정보처리방침의 변경</h2>
+        <p>회사는 개인정보처리방침을 수시로 변경할 수 있습니다. 변경 사항이 있을 경우 본 페이지에 새로운 개인정보처리방침을 게시하고, 상단의 "최종 수정일"을 업데이트합니다.</p>
     </div>
 
     <div class="section">
-        <h2>12. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us:</p>
+        <h2>11. 개인정보 보호책임자 및 연락처</h2>
+        <p>개인정보처리방침에 관한 문의사항이 있으시면 아래로 연락해 주시기 바랍니다.</p>
         <ul>
-            <li>By email: <a href="mailto:contact@wonderx.co.kr" style="color: var(--accent);">contact@wonderx.co.kr</a></li>
-            <li>By visiting this page on our website: <a href="contact.html" style="color: var(--accent);">Contact Page</a></li>
-            <li>By mail: WonderX Inc., 123 Seochojungang-ro, Seocho-gu, Seoul, Republic of Korea</li>
+            <li>이메일: <a href="mailto:contact@wonderx.co.kr">contact@wonderx.co.kr</a></li>
+            <li>주소: WonderX Inc., 서울특별시 서초구 서초중앙로 123</li>
         </ul>
     </div>
 </main>
@@ -350,10 +362,12 @@
 <footer>
     <div class="footer-container">
         <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-            <a href="contact.html">Contact</a>
+            <a href="/">서비스</a>
+            <a href="/#about">소개</a>
+            <a href="https://blog.wonderx.co.kr" target="_blank">블로그</a>
+            <a href="/#contact">문의</a>
+            <a href="/privacy.html">개인정보처리방침</a>
+            <a href="/terms.html">이용약관</a>
         </div>
         <p class="footer-text">&copy; 2025 WonderX Inc. All rights reserved.</p>
     </div>
