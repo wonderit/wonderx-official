@@ -77,14 +77,14 @@
         }
 
         :root {
-            --bg-primary: #000000;
-            --bg-secondary: #1c1c1e;
-            --bg-card: #2c2c2e;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: rgba(255, 255, 255, 0.03);
             --text-primary: #ffffff;
-            --text-secondary: #a1a1a6;
-            --accent: #0a84ff;
-            --accent-hover: #0077ed;
-            --border: #38383a;
+            --text-secondary: #7d8187;
+            --accent: #ffffff;
+            --accent-hover: #d4d4d4;
+            --border: #1f2228;
         }
 
         body {
@@ -147,7 +147,7 @@
             justify-content: center;
             text-align: center;
             padding: 2rem;
-            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            background: var(--bg-primary);
         }
 
         .hero-content {
@@ -156,13 +156,10 @@
 
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 700;
+            font-weight: 600;
             letter-spacing: -2px;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, #a1a1a6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #7d8187;
         }
 
         .hero p {
@@ -174,22 +171,23 @@
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--accent);
+            padding: 0.875rem 2.5rem;
+            background: transparent;
             color: var(--text-primary);
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 1rem;
+            border-radius: 100px;
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
             transition: all 0.3s ease;
-            border: none;
+            border: 1px solid var(--text-secondary);
             cursor: pointer;
         }
 
         .cta-button:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(10, 132, 255, 0.3);
+            border-color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-1px);
         }
 
         /* Services Section */
@@ -227,16 +225,16 @@
         .service-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 0;
             padding: 3rem 2rem;
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+            border-color: #3a3a3f;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .service-icon {
@@ -289,7 +287,7 @@
         .about-highlight-item {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 0;
             padding: 1.5rem;
         }
 
@@ -326,7 +324,7 @@
         .blog-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 0;
             padding: 2rem;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -336,13 +334,13 @@
 
         .blog-card:hover {
             transform: translateY(-3px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: #3a3a3f;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .blog-card-date {
             font-size: 0.85rem;
-            color: var(--accent);
+            color: var(--text-secondary);
             margin-bottom: 0.75rem;
         }
 
@@ -367,20 +365,20 @@
         .blog-more a {
             display: inline-block;
             padding: 0.875rem 2rem;
-            border: 1px solid var(--accent);
-            color: var(--accent);
+            border: 1px solid var(--text-secondary);
+            color: var(--text-primary);
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 1rem;
+            border-radius: 100px;
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
             transition: all 0.3s ease;
         }
 
         .blog-more a:hover {
-            background: var(--accent);
-            color: var(--text-primary);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(10, 132, 255, 0.3);
+            border-color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-1px);
         }
 
         @media (max-width: 768px) {
@@ -412,13 +410,13 @@
         .info-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 0;
             padding: 2rem;
             transition: all 0.3s ease;
         }
 
         .info-card:hover {
-            border-color: var(--accent);
+            border-color: #3a3a3f;
             transform: translateY(-2px);
         }
 
@@ -440,19 +438,22 @@
         }
 
         .info-card a {
-            color: var(--accent);
+            color: var(--text-primary);
             text-decoration: none;
             transition: color 0.3s ease;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
         }
 
         .info-card a:hover {
             color: var(--accent-hover);
+            border-bottom-color: var(--accent-hover);
         }
 
         .contact-form-container {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 0;
             padding: 2.5rem;
         }
 
@@ -481,7 +482,7 @@
             padding: 0.875rem 1rem;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 0;
             color: var(--text-primary);
             font-size: 1rem;
             font-family: inherit;
@@ -492,7 +493,7 @@
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: #3a3a3f;
             background: var(--bg-primary);
         }
 
@@ -504,20 +505,21 @@
         .submit-button {
             width: 100%;
             padding: 1rem;
-            background: var(--accent);
+            background: transparent;
             color: var(--text-primary);
-            border: none;
-            border-radius: 8px;
+            border: 1px solid var(--text-secondary);
+            border-radius: 0;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 400;
+            letter-spacing: 0.5px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .submit-button:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(10, 132, 255, 0.3);
+            border-color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-1px);
         }
 
         .form-note {
@@ -629,7 +631,7 @@
 
         /* Selection */
         ::selection {
-            background: var(--accent);
+            background: rgba(255, 255, 255, 0.2);
             color: var(--text-primary);
         }
     </style>
