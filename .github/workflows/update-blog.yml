@@ -1,0 +1,36 @@
+name: Update Blog Posts
+
+on:
+  schedule:
+    # 매일 09:00 KST (00:00 UTC)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-blog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run blog update script
+        run: python scripts/update-blog-posts.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet index.html || {
+            git add index.html
+            git commit -m "chore: 블로그 포스트 자동 업데이트"
+            git push
+          }
