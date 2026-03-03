@@ -3,17 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WonderX - Beyond Reality, Towards Connection. Social Interaction, Interactive Entertainment, and Business Automation Solutions.">
-    <title>WonderX - Beyond Reality, Towards Connection</title>
+    <meta name="description" content="WonderX는 AI 기술과 창의적 디자인을 결합하여 소셜 인터랙션, 인터랙티브 엔터테인먼트, 비즈니스 자동화 솔루션을 제공하는 기술 기업입니다. AI 에이전트 개발, SaaS 구축, 마케팅 자동화 전문.">
+    <meta name="keywords" content="WonderX, AI 에이전트, 비즈니스 자동화, SaaS, 인터랙티브 엔터테인먼트, 소셜 플랫폼, Claude, GPT, 마케팅 자동화, AI 개발">
+    <meta name="author" content="WonderX Inc.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wonderx.co.kr">
+    <title>WonderX - AI 기술과 자동화 솔루션 | Beyond Reality, Towards Connection</title>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="WonderX - Beyond Reality, Towards Connection">
-    <meta property="og:description" content="소셜 인터랙션, 인터랙티브 엔터테인먼트, 비즈니스 자동화 솔루션을 제공하는 WonderX입니다.">
+    <meta property="og:title" content="WonderX - AI 기술과 자동화 솔루션">
+    <meta property="og:description" content="WonderX는 AI 에이전트 개발, 인터랙티브 엔터테인먼트, 비즈니스 자동화 솔루션을 제공하는 기술 기업입니다. 기술 블로그에서 AI 개발, SaaS 전략, 자동화 인사이트를 확인하세요.">
     <meta property="og:url" content="https://wonderx.co.kr">
     <meta property="og:site_name" content="WonderX">
     <meta property="og:locale" content="ko_KR">
     <meta property="og:image" content="https://wonderx.co.kr/wonderx-logo-x.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WonderX - AI 기술과 자동화 솔루션">
+    <meta name="twitter:description" content="AI 에이전트 개발, 인터랙티브 엔터테인먼트, 비즈니스 자동화 솔루션을 제공하는 WonderX">
+    <meta name="twitter:image" content="https://wonderx.co.kr/wonderx-logo-x.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "WonderX",
+        "url": "https://wonderx.co.kr",
+        "logo": "https://wonderx.co.kr/wonderx-logo-x.png",
+        "description": "WonderX는 AI 기술과 창의적 디자인을 결합하여 소셜 인터랙션, 인터랙티브 엔터테인먼트, 비즈니스 자동화 솔루션을 제공하는 기술 기업입니다.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Seochojungang-ro",
+            "addressLocality": "Seocho-gu, Seoul",
+            "addressCountry": "KR"
+        },
+        "email": "contact@wonderx.co.kr",
+        "sameAs": [
+            "https://blog.wonderx.co.kr"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "WonderX",
+        "url": "https://wonderx.co.kr",
+        "description": "AI 기술과 자동화 솔루션을 제공하는 WonderX 공식 웹사이트",
+        "publisher": {
+            "@type": "Organization",
+            "name": "WonderX"
+        }
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/wonderx-logo-x.svg">
@@ -210,6 +255,138 @@
             color: var(--text-secondary);
             font-size: 1rem;
             line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .about-highlight-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .about-highlight-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-highlight-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 8rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-card-date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.3px;
+            line-height: 1.5;
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .blog-more {
+            text-align: center;
+        }
+
+        .blog-more a {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .blog-more a:hover {
+            background: var(--accent);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(10, 132, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Contact Section */
@@ -464,7 +641,8 @@
         <div class="logo">WonderX</div>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
-            <li><a href="https://blog.wonderx.co.kr" target="_blank">Blog</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -505,6 +683,89 @@
                 <h3>Business Automation</h3>
                 <p>AI-driven marketing automation solutions that transform how businesses operate. Intelligent systems that scale your marketing efforts and drive measurable results.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+    <div class="about-container">
+        <h2 class="section-title">WonderX가 만들어가는 미래</h2>
+        <p class="section-subtitle">기술과 사람을 연결하는 혁신</p>
+
+        <p class="about-text">
+            <strong>WonderX</strong>는 AI 기술과 창의적인 디자인을 결합하여 디지털 경험의 새로운 기준을 만들어가는 기술 기업입니다.
+            우리는 사람과 사람, 사람과 기술 사이의 간극을 좁히는 것이 진정한 혁신이라고 믿습니다.
+        </p>
+        <p class="about-text">
+            소셜 인터랙션 플랫폼을 통해 더 의미 있는 만남을 설계하고,
+            심리학과 인터랙티브 디자인을 융합한 엔터테인먼트 경험을 창조하며,
+            AI 기반 마케팅 자동화 솔루션으로 비즈니스의 성장을 가속화합니다.
+            <strong>단순한 도구가 아니라, 사용자의 삶과 비즈니스에 실질적인 변화를 가져오는 솔루션</strong>을 만드는 것이 WonderX의 목표입니다.
+        </p>
+        <p class="about-text">
+            서울을 기반으로 글로벌 시장을 바라보며, 최신 AI 에이전트 기술과 클라우드 네이티브 아키텍처를 활용해
+            확장 가능하고 안정적인 서비스를 구축합니다. WonderX는 기술 블로그를 통해 AI 개발, SaaS 전략,
+            자동화 워크플로우 등 실무에서 검증된 인사이트를 꾸준히 공유하고 있습니다.
+        </p>
+
+        <div class="about-highlights">
+            <div class="about-highlight-item">
+                <h4>AI 에이전트 개발</h4>
+                <p>Claude, GPT 등 최신 AI 모델을 활용한 자율 에이전트 설계 및 구현 전문 역량을 보유하고 있습니다.</p>
+            </div>
+            <div class="about-highlight-item">
+                <h4>풀스택 SaaS 구축</h4>
+                <p>기획부터 배포까지, B2B/B2C SaaS 제품의 전체 라이프사이클을 경험한 팀이 함께합니다.</p>
+            </div>
+            <div class="about-highlight-item">
+                <h4>데이터 기반 자동화</h4>
+                <p>반복적인 업무를 자동화하고, 데이터에서 인사이트를 추출하여 비즈니스 의사결정을 지원합니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="blog" id="blog">
+    <div class="blog-container">
+        <h2 class="section-title">Latest Insights</h2>
+        <p class="section-subtitle">WonderX 기술 블로그에서 최신 인사이트를 확인하세요</p>
+
+        <div class="blog-grid">
+            <a href="https://blog.wonderx.co.kr/posts/ai-bot-lies-verification-system/" class="blog-card" target="_blank" rel="noopener">
+                <div class="blog-card-date">2026.02.21</div>
+                <h3>AI 봇이 거짓말하는 문제를 어떻게 해결했나 — 4단계 검증 시스템</h3>
+                <p>텔레그램 봇이 작업 완료를 거짓 보고하는 문제를 git diff, 파일 검증, 배포 확인 등 4단계 검증 시스템으로 해결한 경험을 공유합니다.</p>
+            </a>
+
+            <a href="https://blog.wonderx.co.kr/posts/198-lines-are-all-you-need/" class="blog-card" target="_blank" rel="noopener">
+                <div class="blog-card-date">2026.02.20</div>
+                <h3>198줄로 GPT를 구현한다고? Karpathy의 미니멀리즘이 말하는 것</h3>
+                <p>Andrej Karpathy가 Python 198줄로 구현한 GPT의 핵심을 분석하며, GPT 아키텍처의 본질적인 이해를 탐구합니다.</p>
+            </a>
+
+            <a href="https://blog.wonderx.co.kr/posts/ai-kills-b2b-saas/" class="blog-card" target="_blank" rel="noopener">
+                <div class="blog-card-date">2026.02.19</div>
+                <h3>B2B SaaS의 종말 — 사장이 실무하는 회사만 살아남는다</h3>
+                <p>AI가 B2B SaaS 시장의 판도를 어떻게 바꾸고 있는지, 그리고 기술 리더십이 직접 실무를 해야 하는 시대가 된 이유를 다룹니다.</p>
+            </a>
+
+            <a href="https://blog.wonderx.co.kr/posts/pm-agent-pdca-ai-planning/" class="blog-card" target="_blank" rel="noopener">
+                <div class="blog-card-date">2026.02.18</div>
+                <h3>Claude Agent SDK로 PM 에이전트 만들기</h3>
+                <p>자연어 입력을 자동으로 GitHub 이슈로 변환하는 프로덕트 매니지먼트 에이전트를 Claude Agent SDK로 구축한 과정입니다.</p>
+            </a>
+
+            <a href="https://blog.wonderx.co.kr/posts/mitmproxy-app-api-monitoring/" class="blog-card" target="_blank" rel="noopener">
+                <div class="blog-card-date">2026.02.17</div>
+                <h3>매번 앱 껐다 켜기 지쳐서, 직접 API를 까봤다</h3>
+                <p>mitmproxy를 활용해 모바일 앱의 HTTPS 트래픽을 모니터링하고 API 호출을 분석하는 실전 가이드입니다.</p>
+            </a>
+        </div>
+
+        <div class="blog-more">
+            <a href="https://blog.wonderx.co.kr" target="_blank" rel="noopener">블로그에서 더 많은 글 보기 →</a>
         </div>
     </div>
 </section>
@@ -581,6 +842,8 @@
     <div class="footer-container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
         <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
             <a href="#services" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Services</a>
+            <a href="#about" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">About</a>
+            <a href="https://blog.wonderx.co.kr" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;" target="_blank" rel="noopener">Blog</a>
             <a href="#contact" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Contact</a>
             <a href="privacy.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Privacy Policy</a>
             <a href="terms.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Terms of Service</a>
