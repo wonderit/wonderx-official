@@ -4,6 +4,8 @@ on:
   schedule:
     # 매일 09:00 KST (00:00 UTC)
     - cron: '0 0 * * *'
+  repository_dispatch:
+    types: [blog-updated]
   workflow_dispatch:
 
 permissions:
