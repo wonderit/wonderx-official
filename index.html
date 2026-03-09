@@ -105,10 +105,8 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(31, 34, 40, 0.3);
+            background: transparent;
+            border-bottom: none;
             z-index: 1000;
         }
 
@@ -198,7 +196,6 @@
         /* Services Section */
         .services {
             padding: 8rem 2rem;
-            background: rgba(17, 17, 17, 0.55);
         }
 
         .services-container {
@@ -280,7 +277,6 @@
         /* About Section */
         .about {
             padding: 8rem 2rem;
-            background: rgba(10, 10, 10, 0.55);
         }
 
         .about-container {
@@ -328,7 +324,6 @@
         /* Blog Section */
         .blog {
             padding: 8rem 2rem;
-            background: rgba(17, 17, 17, 0.55);
         }
 
         .blog-container {
@@ -413,7 +408,6 @@
         /* Contact Section */
         .contact {
             padding: 8rem 2rem;
-            background: rgba(10, 10, 10, 0.55);
         }
 
         .contact-container {
@@ -553,7 +547,6 @@
 
         /* Footer */
         footer {
-            background: rgba(17, 17, 17, 0.6);
             border-top: 1px solid var(--border);
             padding: 3rem 2rem;
         }
@@ -699,12 +692,9 @@
         }
 
         /* Ensure all content sits above canvas */
-        nav, .hero, .services, .about, .blog, .contact, footer {
+        .hero, .services, .about, .blog, .contact, footer {
             position: relative;
             z-index: 1;
-        }
-
-        .hero {
             background: transparent;
         }
     </style>
