@@ -1102,21 +1102,21 @@
   scene.add(lines);
 
   // Ambient glow orbs — strong enough to show through sections
-  var topGlowTex = createGlowTexture(180, 200, 255, 1.0);
+  var topGlowTex = createGlowTexture(180, 200, 255, 0.7);
   var topGlowSprite = new THREE.Sprite(new THREE.SpriteMaterial({
     map: topGlowTex, transparent: true,
     blending: THREE.AdditiveBlending, depthWrite: false
   }));
-  topGlowSprite.scale.set(28, 28, 1);
+  topGlowSprite.scale.set(24, 24, 1);
   topGlowSprite.position.set(0, 4, -5);
   scene.add(topGlowSprite);
 
-  var bottomGlowTex = createGlowTexture(220, 170, 100, 0.7);
+  var bottomGlowTex = createGlowTexture(220, 170, 100, 0.45);
   var bottomGlowSprite = new THREE.Sprite(new THREE.SpriteMaterial({
     map: bottomGlowTex, transparent: true,
     blending: THREE.AdditiveBlending, depthWrite: false
   }));
-  bottomGlowSprite.scale.set(22, 22, 1);
+  bottomGlowSprite.scale.set(18, 18, 1);
   bottomGlowSprite.position.set(3, -6, -4);
   scene.add(bottomGlowSprite);
 
@@ -1227,8 +1227,8 @@
     bottomGlowSprite.position.z = -4 + scrollProgress * 1.5;
 
     // Glow intensity shifts with scroll
-    topGlowSprite.material.opacity = 1.0;
-    bottomGlowSprite.material.opacity = 0.9;
+    topGlowSprite.material.opacity = 0.85;
+    bottomGlowSprite.material.opacity = 0.7;
 
     // Grid animation
     gridHelper.position.y = -5 + Math.sin(elapsed * 0.15) * 0.2;
